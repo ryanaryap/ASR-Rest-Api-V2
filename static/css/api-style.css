@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+:root
+{
+  --primary-color: #8979b9;
+  --primary-color-dark: #554684;
+  --background-table: #d5c7ff;
+  --background-table2: #f9f9f9;
+  --white: #fff;
+  --green-color-dark: #2eae03f3;
+  --green-color: #03ca00;
+  --red-color-dark: #c10000;
+  --red-color: #eb0000f3;
+
+
+}
+
+body
+{
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+.container
+{
+  position:relative;
+  width: 100%;
+}
+
+.navigation
+{
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background: var(--primary-color-dark);
+  border-left: 10px solid var(--primary-color-dark);
+  transition: 0.5s;
+  overflow: hidden;
+  margin-left: -9px;
+  margin-top: -9px;
+}
+
+.navigation.active
+{
+  width: 80px;
+}
+
+.navigation ul
+{
+  position: absolute;
+  top: 0;
+  left: -30px;
+  width: 100%;
+}
+
+.navigation ul li
+{
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered
+{
+ background: var(--white);
+}
+
+.navigation ul li:nth-child(1)
+{
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a
+{
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a
+{
+  color: var(--primary-color-dark);
+}
+
+.navigation ul li a .icon
+{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 78px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon
+{
+  font-size: 1.75em;
+}
+
+.navigation ul li a .title
+{
+  position: relative;
+  display: block;
+  padding: 0px 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* curva diluar */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before
+{
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after
+{
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -30px 0 5px var(--white);
+  pointer-events: none;
+}
+
+
+/* main */
+.main
+{
+  position: absolute;
+  width: calc(100% - 315px);
+  left: 265px;
+  min-height: 100vh;
+  transition: 0.5s;
+}
+
+.main.active
+{
+  width: calc(100% - 140px);
+  left: 95px;
+}
+
+.topbar
+{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  background: var(--white);
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.toggle
+{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+.search
+{
+  position: relative;
+  width: 400px;
+  margin: 0px 0px 0px 0px;
+}
+
+.search label input
+{
+  width: 100%;
+  height: 30px;
+  border-radius: 47px;
+  padding: 2px 35px;
+  font-size: 17px;
+  outline: none;
+  border: 1px solid var(--primary-color-dark);
+}
+
+.search label input
+{
+  position: absolute;
+  top: -6px;
+  left: -25px;
+}
+
+.search label ion-icon
+{
+  font-size: 20px;
+  margin-top: 1px;
+  margin-left: -15px;
+}
+
+.user
+{
+  position: relative;
+  left: -65px;
+  bottom: 2px;
+  min-width: 50px;
+  height: 40px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  object-fit: cover;
+}
+
+.cardBox
+{
+  position: relative;
+  width: 100%;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 30px;
+}
+.cardBox .card
+{
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 28px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 7px 25px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+#clock
+{
+  user-select:none;
+}
+#date
+{
+  user-select:none;
+}
+
+.cardBox .card .numbers
+{
+    position: relative;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: var(--primary-color-dark);
+}
+
+.cardBox .card .cardName
+{
+    color: var(--primary-color-dark);
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBox
+{
+  font-size: 3.5em;
+  color: var(--primary-color-dark);
+
+}
+
+.cardBox .card:hover
+{
+  background: var(--primary-color-dark);
+}
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .cardName,
+.cardBox .card:hover .iconBox
+{
+  color: var(--white);
+}
+
+
+.details
+{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.details .listApi
+{
+  position: relative;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgb(0 0 0 / 18%);
+  border-radius: 20px;
+}
+
+.cardHeader 
+{
+  display: flex;
+  align-items: flex-start;
+}
+
+.cardHeader h1
+{
+  font-weight: 600;
+  color: var(--primary-color-dark);
+} 
+
+.btn
+{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--primary-color-dark);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.btn:hover
+{
+  background-color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.btn1
+{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--green-color-dark);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.btn1:hover
+{
+  background-color: var(--green-color);
+  transition: 0.5s;
+}
+
+.btn3
+{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--red-color-dark);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.btn3:hover
+{
+  background-color: var(--red-color);
+  transition: 0.5s;
+}
+
+.btn2
+{
+  position: relative;
+  padding: 1px 4px;
+  background: var(--primary-color-dark);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.btn2:hover
+{
+  background: var(--primary-color);
+  transition: 0.5s;
+}
+
+.details .listApi table {
+    border-collapse: collapse;
+    border-radius: 1em;
+    width: 100%;
+    overflow: hidden;
+    font-size: 0.9em;
+    padding: 20px;
+    font-family: sans-serif;
+    margin: 0 auto;
+}
+    .details .listApi table th,
+    .details .listApi table td {
+    padding: 12px 15px;
+    }
+
+    .details .listApi table thead tr {
+        background: var(--primary-color-dark);
+        color: var(--white);
+    }
+
+    .details .listApi table tbody tr:nth-of-type(odd) {
+        background-color: var(--background-table2);
+    }
+
+    .details .listApi table tbody tr:nth-of-type(even) {
+        background-color: var(--background-table);
+    }
+
+.footer 
+{
+  width: 100%;
+  height: 50px;
+  padding: 25px 20px;
+  background: var(--white);
+  text-align: center;
+}
+
+/*Responsive*/
+@media screen and (max-width: 991px)
+{
+  .navigation
+  {
+    left: 0;
+    width: 250px;
+}
+  .navigation .active
+  {
+    width: 300px;
+    left: 0;
+  }
+  .search
+  {
+    width: 200px;
+  }
+  .user
+  {
+    left: -5px;
+  }
+  .main
+  {
+    width: calc(100% - 300px);
+    left: 259px;
+  }
+  .main.active
+  {
+    left: 92px;
+  }
+  .cardBox
+  {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .navigation
+  {
+    left: 0;
+    width: 200px;
+  }
+  .navigation .active
+  {
+    width: 300px;
+    left: 0;
+  }
+  .main
+  {
+    width: calc(100% - 250px);
+    left: 210px;
+  }
+  .main.active
+  {
+    left: 90px;
+  }
+  .toggle
+  {
+    z-index: 1001;
+  }
+  .search
+  {
+    width: 130px;
+    left: 0;
+  }
+  .user
+  {
+    left: 30px;
+  }
+  .cardBox
+  {
+    grid-template-columns: repeat(1,1fr);
+  }
+  .listApi
+  {
+    overflow-x: auto;
+  }
+  .footer .btn2 a
+  {
+    margin-left: 50px;
+  }
+}
+
+@media screen and (max-width: 480px)
+{
+  .cardBox
+  {
+    grid-template-columns: repeat(1,1fr);
+  }
+  .cardHeader h2
+  {
+    font-size: 20px;
+  }
+  .user
+  {
+    min-width: 48px;
+    left: 12px;
+  }
+  .navigation
+  {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active
+  {
+    width: 100%;
+    left: 0;
+  }
+  .toggle
+  {
+    z-index: 1001;
+  }
+  .main.active .toggle
+  {
+    position: fixed;
+    right: 0;
+    left: initial;
+    color: var(--white);
+    transition: 1s;
+  }
+  .search {
+    width: 50px;
+    left: -10px;
+  }
+  .main
+  {
+    width: calc(100% - 50px);
+    left: 10px;
+  }
+}

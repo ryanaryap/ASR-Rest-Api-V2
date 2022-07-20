@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>ASR Rest Api - Downloader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ASR Rest Api adalah layanan tools online yang di buat untuk tugas uas kuliah. Semoga bisa memudahkan dan bermanfaat untuk semua.">
+    <!-- Base URL -->
+    <base href="http://127.0.0.1:5000/downloader" >
+
+    <!-- Import Icon -->
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/api-style.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"><ion-icon name="wifi-outline"></ion-icon></span>
+              <span class="title">ASR Rest Api</span>
+            </a>
+          </li>
+          <li>
+            <a href="/api">
+              <span class="icon"><ion-icon name="home-outline"></ion-icon></ion-icon></span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/downloader">
+              <span class="icon"><ion-icon name="cloud-download-outline"></ion-icon></span>
+              <span class="title">Downloader</span>
+            </a>
+          </li>
+          <li>
+            <a href="/edukasi">
+              <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
+              <span class="title">Edukasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="/game">
+              <span class="icon"><ion-icon name="game-controller-outline"></ion-icon></span>
+              <span class="title">Game</span>
+            </a>
+          </li>
+          <li>
+            <a href="/islam">
+              <span class="icon"><ion-icon name="heart-outline"></ion-icon></span>
+              <span class="title">Islam</span>
+            </a>
+          </li>
+          <li>
+            <a href="/random">
+              <span class="icon"><ion-icon name="shuffle-outline"></ion-icon></span>
+              <span class="title">Random</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- main -->
+    <div class="main">
+      <div class="topbar">
+        <div class="toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+        </div>
+        <!--Search-->
+        <div class="search">
+          <label>
+            <input type="text" placeholder="  Cari disini">
+            <ion-icon name="search-outline"></ion-icon>
+          </label>
+        </div>
+        <!--User-->
+        <div class="user">
+          <img src="/static/images/user.png">
+        </div>
+      </div>
+
+      <!-- cards-->
+      <div class="cardBox">
+        <div class="card">
+          <div>
+            <div id="clock" class="numbers glow"></div>
+            <div id="date" class="cardName glowMini"></div>
+          </div>
+          <div class="iconBox">
+            <ion-icon name="time-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div id="count" class="numbers"></div>
+            <div class="cardName">Total Views</div>
+          </div>
+          <div class="iconBox">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="numbers ip"></div>
+            <div class="cardName location"></div>
+          </div>
+          <div class="iconBox">
+            <ion-icon name="globe-outline"></ion-icon>
+          </div>
+        </div>
+        <div class="card">
+          <div>
+            <div class="numbers temp"></div>
+            <div class="cardName">Celcius</div>
+          </div>
+          <div class="iconBox">
+            <ion-icon name="thermometer-outline"></ion-icon>
+          </div>
+        </div>       
+      </div>
+
+      <!-- list all api -->
+      <div class="details">
+        <div class="listApi">
+          <div class="cardHeader">
+            <h1>List Api Downloader</h1>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <td>API</td>
+                <td>Description</td>
+                <td>Parameter</td>
+                <td>Status</td>
+                <td>Usage</td>
+              </tr>
+            </thead>
+            <tbody>
+                <!-- Instagram Downloader  -->
+                <tr>
+                    <td>Instagram Image/Video Downloader</td>
+                    <td>Mengambil Link download dari link post Instagram.</td>
+                    <td>url</td>
+                    <td><a href="#" class="btn1">Active</a></td>
+                    <td><a href="/api/ig?url=https://www.instagram.com/p/CQbJhBRr5Pg/" class="btn">Example</a></td>
+                </tr>
+
+                <!-- Instagram Downloader  -->
+                <tr>
+                  <td>Instagram Image/Video Downloader V2</td>
+                  <td>Mengambil Link download dari link post Instagram.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/ig2?url=https://www.instagram.com/p/CQbJhBRr5Pg/" class="btn">Example</a></td>
+              </tr>
+
+                <!-- Twitter Downloader  -->
+                <tr>
+                  <td>Twitter Video Downloader</td>
+                  <td>Mengambil Link download dari link post Twitter.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/twitter?url=https://twitter.com/sleepyshaynoo/status/1548133027854688259" class="btn">Example</a></td>
+              </tr>
+
+                <!-- 9gag Downloader  -->
+                <tr>
+                  <td>9GAG Image/Video Downloader</td>
+                  <td>Mengambil Link download dari link post 9GAG.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/9gag?url=https://9gag.com/gag/a41yqZZ" class="btn">Example</a></td>
+              </tr>
+
+                <!-- Like Downloader  -->
+                <tr>
+                  <td>Like Video Downloader</td>
+                  <td>Mengambil Link download dari link post Like.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/like?url=https://likee.video/@kamado_nezuko578/video/7050545881390340590" class="btn">Example</a></td>
+              </tr>
+
+                <!-- Vimeo Downloader  -->
+                <tr>
+                  <td>Vimeo Video Downloader</td>
+                  <td>Mengambil Link download dari link post Vimeo.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/vimeo?url=https://vimeo.com/721026598" class="btn">Example</a></td>
+              </tr>
+
+                <!-- WWE Downloader  -->
+                <tr>
+                  <td>WWE Video Downloader</td>
+                  <td>Mengambil Link download dari link post WWE.</td>
+                  <td>url</td>
+                  <td><a href="#" class="btn1">Active</a></td>
+                  <td><a href="/api/wwe?url=https://www.wwe.com/videos/the-rock-vs-triple-h-raw-august-19-2002-full-match" class="btn">Example</a></td>
+              </tr>
+
+                <!-- Youtube Audio Downloader  -->
+                <tr>
+                    <td>YouTube Audio Downloader</td>
+                    <td>Mengambil Link download dari link YouTube.</td>
+                    <td>url</td>
+                    <td><a href="#" class="btn1">Active</a></td>
+                    <td><a href="/api/yta?url=https://youtu.be/6l5V3BWDcMw" class="btn">Example</a></td>
+                </tr>
+
+                <!-- Youtube Video Downloader  -->
+                <tr>
+                    <td>YouTube Video Downloader</td>
+                    <td>Mengambil Link download dari link YouTube.</td>
+                    <td>url</td>
+                    <td><a href="#" class="btn1">Active</a></td>
+                    <td><a href="/api/ytv?url=https://youtu.be/6l5V3BWDcMw" class="btn">Example</a></td>
+                </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script type="text/javascript">
+      //time
+      setInterval(displayTime,1000);
+
+      function displayTime(){
+        const timeNow = new Date();
+        document.getElementById('clock').innerText = timeNow.toLocaleString('id-ID',{
+          timeStyle:'medium'
+        });
+        
+        document.getElementById('date').innerText = timeNow.toLocaleString('id-ID',{
+          dateStyle:'full'
+        });
+        console.log(timeNow);
+      }
+
+      displayTime();
+
+      //Menu Toggle
+      let toggle = document.querySelector('.toggle');
+      let navigation = document.querySelector('.navigation');
+      let main = document.querySelector('.main');
+
+      toggle.onclick = function() {
+        navigation.classList.toggle('active')
+        main.classList.toggle('active')
+      }
+      // hovered menu
+      let list = document.querySelectorAll('.navigation li');
+      function activelink(){
+        list.forEach((item) =>
+        item.classList.remove('hovered'));
+        this.classList.add('hovered')
+      }
+      list.forEach((item) =>
+        item.addEventListener('mouseover',activelink));
+    </script>
+
+  <script type="text/javascript">
+  const countEl = document.getElementById('count');
+
+  updateVisitCount();
+
+  function updateVisitCount() {
+    fetch('https://api.countapi.xyz/hit/asr-restapi.herokuapp.com/visits')
+    .then(res => res.json())
+    .then(res => {
+      countEl.innerHTML = res.value;
+    })
+  }
+  </script>
+
+ <script type="text/javascript">
+    const DOM = {
+        $currentLocation: $('.location'),
+        $currentTemp: $('.temp'),
+        $switchButton: $('#current__checkbox'),
+    }
+
+    // Display weather reports
+    const getWeatherReport = {
+        showCurrent(report, location) {
+            DOM.$currentLocation.text(`${location.city}`);
+            DOM.$currentTemp.text(`${report.currently.temperature.toFixed()}`);
+        }
+    }
+
+    // Weather report controller
+    function weatherController(location) {
+        const unit = DOM.$switchButton.prop('checked') ? 'si' : 'si';
+        const loc = location.loc.split(',');
+        const latitude = loc[0];
+        const longitude = loc[1];
+        const urlWeather = `https://api.darksky.net/forecast/8f05b9be093e0cbfcd6d645a5eb8a0af/${latitude},${longitude}?units=${unit}&callback=?`;
+
+        // Get weather data from Dark Sky
+        $.getJSON(urlWeather, (report) => {
+            // console.log(report);
+            getWeatherReport.showCurrent(report, location);
+            getWeatherReport.showNext(report);
+        });
+    }
+
+    // Initialize
+    function init() {
+        const urlIP = 'https://ipinfo.io/json?token=db7372b3d33e15';
+
+        // Get IP Location
+        $.getJSON(urlIP, (location) => {
+            weatherController(location);
+        });
+    }
+
+    $(window).on('load', init);
+    DOM.$switchButton.on('change', init);
+  </script>
+
+  <script>
+    $.ajax({
+	  url: "https://ipinfo.io/json?token=7e861609f075fb",
+			  dataType: "jsonp",
+			  success: function(data){
+    var ip = data.ip
+        $('.ip').text(ip);
+	  }
+    });
+  </script>
+  
+  </body>
+
+</html>
