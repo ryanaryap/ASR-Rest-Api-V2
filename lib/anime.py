@@ -68,7 +68,7 @@ def scrap_lk21(url):
         'msg': 'Failed get metadata'
     }
     
-    def scrap_adkflm(url):
+def scrap_adkflm(url):
     try:
         adkflm = bs(get(url).text, 'html.parser')
         thumb = adkflm.find('img', class_='wp-post-image')['src']
