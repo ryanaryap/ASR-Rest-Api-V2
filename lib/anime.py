@@ -67,3 +67,27 @@ def scrap_lk21(url):
         'error': e,
         'msg': 'Failed get metadata'
     }
+    
+    def scrap_adkflm(url):
+    try:
+        adkflm = bs(get(url).text, 'html.parser')
+        thumb = adkflm.find('img', class_='wp-post-image')['src']
+        title = adkflm.find('h1', class_='entry-title').text
+        tdeskripsi = adkflm.find('div', class_='entry-content-single')
+        deskripsi = list(u.text for u in tdeskripsi.findAll('p'))
+        adikdown = adkflm.find('div', class_='adikdown')
+        li = len(adkflm.findAll('li'))
+        tmpt_dl = list(u.text for u in adikdown.findAll('a'))
+        reso = list(e.text for e in adikdown.findAll('strong'))
+        link_dl = list(ntapz['href'] for ntapz in adikdown.findAll('a'))
+        result_dl = ''.join(f'{tmpt_dl[o]} ({reso[o]}) => {link_dl[o]}\n\n' for o in range(len(reso)))
+        return {
+            'title': title,
+            'thumb': thumb,
+            'deskripsi': deskripsi,
+            'result_dl': result_dl
+        }
+    except Exception as e: return {
+        'error': e,
+        'msg': 'Failed get metadata'
+    }
