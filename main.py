@@ -497,6 +497,34 @@ def lk21():
 			'msg': '[!] Masukkan parameter q'
 		}
 
+@app.route('/api/adkflm', methods=['GET','POST'])
+def adkflm():
+	if request.args.get('q'):
+		try:
+			q = request.args.get('q')
+			heh=search_adkflm(quote(q))
+			adk=scrap_adkflm(heh)
+			if heh != '':
+				return {
+					'status': 200,
+                    'title': adk['title'],
+					'thumb': adk['thumb'],
+					'deskripsi': adk['deskripsi'],
+					'result_dl': adk['result_dl']
+
+				}
+		except Exception as e:
+			print(e)
+			return {
+				'status': False,
+				'error': 'Anime %s Tidak di temukan' % unquote(q)
+			}
+	else:
+		return {
+			'status': False,
+			'msg': '[!] Masukkan parameter q'
+		}
+
 @app.route('/api/otakudesu')
 def otakudesuu():
     if request.args.get('q'):
