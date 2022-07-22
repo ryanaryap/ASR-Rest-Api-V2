@@ -504,7 +504,7 @@ def adkflm():
 			q = request.args.get('q')
 			heh=search_adkflm(quote(q))
 			adk=scrap_adkflm(heh)
-			if heh:
+			if heh != '':
 				return {
 					'status': 200,
                     'title': adk['title'],
