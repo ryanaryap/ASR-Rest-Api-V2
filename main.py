@@ -337,7 +337,7 @@ def ytv():
 			id = re.findall('var k__id = "(.*?)"', ytv['result'])
 			thumb = bs(ytv['result'], 'html.parser').find('img')['src']
 			title = bs(ytv['result'], 'html.parser').find('b').text
-			dl_link = bs(post('https://www.y2mate.com/mates/en376/convert',data={'type':url.split('/')[2],'_id':id[0],'v_id':url.split('/')[3],'ajax':'1','token':'','ftype':'mp4','fquality':'360p'}).json()['result'],'html.parser').find('a')['href']
+			dl_link = bs(post('https://www.y2mate.com/mates/convert',data={'type':url.split('/')[2],'_id':id[0],'v_id':url.split('/')[3],'ajax':'1','token':'','ftype':'mp4','fquality':'360p'}).json()['result'],'html.parser').find('a')['href']
 			return {
 				'status': 200,
 				'title': title,
