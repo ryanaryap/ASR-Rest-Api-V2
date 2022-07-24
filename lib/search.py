@@ -7,6 +7,14 @@ usr_agent = {
 	'User-Agent': random.choice(ua)
 	}
 
+def search_kusonime(query):
+    url = bs(requests.get('https://kusonime.com/?s=%s' % query, headers=usr_agent).text, 'html.parser').find('div', class_='detpost').a['href']
+    return url
+    
+def search_otakudesu(query):
+	url = otakudesu = bs(requests.get('https://otakudesu.watch/?s=%s&post_type=anime' % query, headers=usr_agent).text, 'html.parser').find('ul', class_='chivsrc').a['href']
+	return url
+
 def search_lk21(query):
 	urllk21 = lk21 = bs(requests.get('https://lk21.asia/?s=%s' % query, headers=usr_agent).text, 'html.parser').find('div', class_='search-content').a['href']
 	return urllk21
