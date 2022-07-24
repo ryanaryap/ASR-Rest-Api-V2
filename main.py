@@ -484,8 +484,7 @@ def lk21():
 					'thumb': lk211['thumb'],
                     'sinopsis': lk211['sinopsis'],
                     'title': lk211['title']
-				},
-			 return 0
+				}
 		except Exception as e:
 			print(e)
 			return {
