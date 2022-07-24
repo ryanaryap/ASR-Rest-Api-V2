@@ -55,10 +55,10 @@ def scrap_lk21(urllk21):
         thumb = lk21.find('img', class_='img-thumbnail')['src']
         link_dl = lk21.find('div', class_='download-movie')
         result_dl = link_dl.find('a', class_='btn-success')['href']
-        fix_dl = ''.join(f'Link Download :{result_dl}')
+        info = ''.join(f'Link Download :{result_dl}')
 
         return {
-            'result_dl': result_dl,
+            'info': info,
             'thumb': thumb,
             'sinopsis': sinopsis,
             'title': title
