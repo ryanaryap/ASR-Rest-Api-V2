@@ -480,7 +480,7 @@ def lk21():
 			if he != '':
 				return {
 					'status': 200,
-					'result_dl': lk211['result_dl'],
+					'info': lk211['info'],
 					'thumb': lk211['thumb'],
                     'sinopsis': lk211['sinopsis'],
                     'title': lk211['title']
