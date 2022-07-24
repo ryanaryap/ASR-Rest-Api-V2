@@ -15,8 +15,8 @@ def search_otakudesu(query):
 	return url
 
 def search_lk21(query):
-	url = lk21 = bs(requests.get('https://lk21.asia/?s=%s' % query, headers=usr_agent).text, 'html.parser').find('div', class_='search-content').a['href']
-	return url
+	urllk21 = lk21 = bs(requests.get('https://lk21.asia/?s=%s' % query, headers=usr_agent).text, 'html.parser').find('div', class_='search-content').a['href']
+	return urllk21
 
 def search_adkflm(query):
 	url = adkflm = bs(requests.get('https://adikfilm.cfd/?s=%s' % query, headers=usr_agent).text, 'html.parser').find('div', class_='gmr-watch-movie').a['href']
