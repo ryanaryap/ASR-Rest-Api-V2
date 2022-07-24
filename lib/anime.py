@@ -1,10 +1,10 @@
 from unittest import result
-from requests import get
 from bs4 import BeautifulSoup as bs
+import requests
 import json
 def scrap_kusonime(url):
     try:
-        kuso = bs(get(url).text, 'html.parser')
+        kuso = bs(requests.get(url).text, 'html.parser')
         title = kuso.find('h1', class_='jdlz').text
         view = kuso.find('span', class_='viewoy').text.strip()
         info = '\n'.join(str(i.text) for i in kuso.find('div', class_='info').findAll('p'))
@@ -31,7 +31,7 @@ def scrap_kusonime(url):
     }
 def scrap_otakudesu(url):
     try:
-        otakudesu = bs(get(url).text, 'html.parser')
+        otakudesu = bs(requests.get(url).text, 'html.parser')
         title = otakudesu.find('div', class_='jdlrx').text.split('Subtitle')[0]
         sinopsis = otakudesu.find('div', class_='sinopc').text
         info = '\n'.join(str(o.text) for o in otakudesu.find('div', class_='infozingle').findAll('p'))
@@ -46,10 +46,10 @@ def scrap_otakudesu(url):
         'error': e,
         'msg': 'Failed get metadata'
     }
-
+    
 def scrap_lk21(url):
     try:
-        lk21 = bs(get(url).text, 'html.parser')
+        lk21 = bs(requests.get(url).text, 'html.parser')
         title = lk21.find('header', class_='post-header').text.split('LK21 ')[1].split(' Film')[0]
         sinopsis = lk21.find('blockquote').text.split('Synopsis')[1].split('Worldwide Gross')[0]
         thumb = lk21.find('img', class_='img-thumbnail')['src']
@@ -67,10 +67,10 @@ def scrap_lk21(url):
         'error': e,
         'msg': 'Failed get metadata'
     }
-    
+
 def scrap_adkflm(url):
     try:
-        adkflm = bs(get(url).text, 'html.parser')
+        adkflm = bs(requests.get(url).text, 'html.parser')
         thumb = adkflm.find('img', class_='wp-post-image')['src']
         title = adkflm.find('h1', class_='entry-title').text
         tdeskripsi = adkflm.find('div', class_='entry-content-single')
