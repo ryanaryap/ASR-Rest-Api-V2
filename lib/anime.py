@@ -47,9 +47,9 @@ def scrap_otakudesu(url):
         'msg': 'Failed get metadata'
     }
     
-def scrap_lk21(url):
+def scrap_lk21(urllk21):
     try:
-        lk21 = bs(requests.get(url).text, 'html.parser')
+        lk21 = bs(requests.get(urllk21).text, 'html.parser')
         title = lk21.find('header', class_='post-header').text.split('LK21 ')[1].split(' Film')[0]
         sinopsis = lk21.find('blockquote').text.split('Synopsis')[1].split('Worldwide Gross')[0]
         thumb = lk21.find('img', class_='img-thumbnail')['src']
